@@ -5,3 +5,11 @@
 Инициализация проекта:
 
 `$ npm init -y`
+
+Установка пакетов для TipeScript:
+
+`$ npm i -D typescript ts-node`
+
+Инициализация Typescript:
+
+`$ npx tsc --init`

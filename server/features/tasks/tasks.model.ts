@@ -1,7 +1,7 @@
-const { Model, DataTypes } = require("sequelize");
-const sequelize = require("../../db");
+import { Model, DataTypes } from "sequelize";
+import sequelize from "../../db";
 
-class TasksModel extends Model {}
+export default class TasksModel extends Model {}
 
 TasksModel.init({
     title: {
@@ -18,5 +18,3 @@ TasksModel.init({
     sequelize,
     tableName: 'tasks'
 })
-
-module.exports = TasksModel
