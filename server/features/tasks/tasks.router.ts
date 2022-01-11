@@ -1,7 +1,9 @@
+import { createTaskValidator } from './tasks.validator';
 // ES module
 import express from "express";
-import { createTask, getAllTasks, getTask } from './tasks.controller';
+import { createTask, deleteTask, getAllTasks, getTask, updateTask } from './tasks.controller';
 import TasksModel from "./tasks.model";
+import { idValidator } from './tasks.validator';
 
 const tasksRouter = express.Router()
 
@@ -13,8 +15,16 @@ const tasksRouter = express.Router()
 
 tasksRouter.get('/', getAllTasks)
 
-tasksRouter.get('/:id', getTask)
+// tasksRouter.get('/', async (req, res) => {
+//   res.send(await TasksModel.findAll())
+// })
 
-tasksRouter.post('/', createTask)
+tasksRouter.get('/:id', idValidator, getTask)
+
+tasksRouter.post('/', createTaskValidator, createTask)
+
+tasksRouter.patch('/:id', idValidator, createTaskValidator, updateTask)
+
+tasksRouter.delete('/:id', idValidator, deleteTask)
 
 export default tasksRouter
