@@ -24,13 +24,7 @@ export async function getTaskService(id: number) {
 }
 
 export async function deleteTaskService(id: number) {
-  let result;
-  // try {
-    result = await TasksModel.destroy({ where: { id } })
-  // } catch (error) {
-  //   const err = error as Error
-  //   throw httpError(400, err.message)
-  // }
+  let result = await TasksModel.destroy({ where: { id } })
   if (result === 1) {
     return { success: true }
   } else {
